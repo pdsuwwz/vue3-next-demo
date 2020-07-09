@@ -7,6 +7,7 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const notifier = require('node-notifier')
 const { VueLoaderPlugin } = require('vue-loader')
 const resolve = (dir) => path.join(__dirname, dir)
 
