@@ -1,20 +1,44 @@
 <template>
   <div class="home">
-    <h1>Hello {{ title }}</h1>
+    <p
+      :style="{
+        color
+      }"
+    >Hello {{ title }}</p>
+    <div>{{ state.count }}</div>
+    <button @click="handleClick()">点我试试</button>
   </div>
 </template>
 
 <script>
-export default {
+import {
+  defineComponent,
+  ref,
+  reactive
+} from 'vue'
+
+export default defineComponent({
   setup () {
+    const state = reactive({
+      count: 100
+    })
+    const color = ref('red')
+
     return {
-      title: 'Vue.js 3.0'
+      color,
+      state,
+      title: 'Vue.js 3.0',
+      handleClick () {
+        color.value = color.value === 'red' ? 'green' : 'red'
+        state.count++
+      }
     }
   }
-}
+})
 </script>
 <style scoped>
 .home {
-  color: red;
+  font-size: 30px;
+  font-weight: bolder;
 }
 </style>
